@@ -38,7 +38,7 @@ export default function Home() {
       <CarouselItem content='downloadLinks' />
 
       <div className='flex flex-col items-center justify-center my-8 space-y-2 overflow-hidden'>
-        <div className='mt-4 gap-4 my-8 flex flex-col max-w-[1100px] mx-auto px-4'>
+        <div className='mt-4 gap-4 my-8 flex flex-col max-w-[1100px] w-full md:mx-auto px-7'>
           <h1 className='text-2xl font-medium '>SPECIAL OFFER</h1>
           <FoodCarousel slides={food} />
         </div>

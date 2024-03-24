@@ -33,7 +33,7 @@ const MenuPage = () => {
 
 const Section = ({ header, food }: { header: string; food: Food[] }) => {
   return (
-    <div className='w-full flex flex-col p-2 mx-auto px-4'>
+    <div className='w-full flex flex-col py-2 mx-auto px-8'>
       <h1 className='text-xl font-semibold mb-4 ml-5'>{header}</h1>
       <FoodCarousel slides={food} />
     </div>

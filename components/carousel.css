@@ -3,6 +3,7 @@
   --slide-size: 33%;
   --slide-height: 350px;
   position: relative;
+  width: 100%;
 }
 .embla-product {
   --slide-spacing: 0.3rem;
@@ -39,10 +40,7 @@
   touch-action: pan-y;
   margin-left: calc(var(--slide-spacing) * -1);
 }
-/* .embla-middle-display .embla__container {
-  border-radius: 20px;
-  overflow: hidden;
-} */
+
 .embla__slide {
   flex: 0 0 var(--slide-size);
   min-width: 0;
@@ -147,19 +145,19 @@
 
 @media screen and (max-width: 800px) {
   .embla-home-menu {
-    --slide-spacing: 10px;
+    --slide-spacing: 0.5rem;
     --slide-height: 350px;
-    /* width: 100%; */
     --slide-size: 100%;
+    /* background-color: red; */
   }
 
   .embla__prev {
     top: 40%;
-    left: 0;
+    left: -30px;
   }
 
   .embla__next {
     top: 40%;
-    right: 0;
+    right: -30px;
   }
 }
