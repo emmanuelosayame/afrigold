@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add these styles to your global CSS file */
+
+:root {
+  --dark-blue: #0a1930;
+  --light-blue: #1f93ff;
+
+  --color-white: #fff;
+  --color-dark: #333;
+
+  --color-grey: #eee;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  --color-purple: #9d0191;
+  --color-orange: #ff7722;
+
+  --color-primary: #007bff;
+  --color-success: #28a745;
+  --color-danger: orangered;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Background */
+.--bg-light {
+  background: #fff;
+}
+.--bg-dark {
+  background: var(--color-dark);
+}
+.--bg-primary {
+  background: var(--color-primary);
+}
+.--bg-success {
+  background: var(--color-success);
+}
+.--bg-grey {
+  background: var(--color-grey);
+}
+
+@layer components {
+  .btn-red {
+    @apply bg-[#D50606] text-xl font-medium;
+  }
+}
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: rgba(46, 35, 35, 0.15);
+  z-index: 10000;
+}
+
+.spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0px auto;
+  width: 100px;
+  height: 100px;
+  /* border-radius: 50%; */
+  -webkit-animation: spin 0.5s linear infinite;
+  -moz-animation: spin 0.5s linear infinite;
+  -o-animation: spin 0.5s linear infinite;
+  animation: spin 0.5s linear infinite;
+  border: 6px solid #eb0d0dce;
+  z-index: 10000;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.menu-shadow {
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.3),
+    0px 6px 10px 4px rgba(0, 0, 0, 0.15);
+}

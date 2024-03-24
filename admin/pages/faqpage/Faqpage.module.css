@@ -1,0 +1,116 @@
+/* FAQPage.css */
+
+
+ 
+
+.faq-container {
+    width: 400px;
+    
+    box-sizing: border-box;
+    padding: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: #fff; */
+    margin-right: 10px;
+    margin-bottom: 10px;
+   
+    
+  }
+  
+  .faq-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+  
+  .input-faq {
+    padding: 10px 50px;
+    margin-right: 10px;
+    border: 1px solid rgb(231, 207, 207);
+    border-radius: 10px;
+    outline: #fff;
+  }
+
+  .input-faq::placeholder {
+    margin-right: 12px;
+  }
+  
+  .button-faq {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .button:hover {
+    background-color: #2980b9;
+  }
+  
+  .faq-body {
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+
+  @media screen and (min-width: 480px){
+    .faq-container {
+      min-width: 500px;
+      
+    }
+}
+
+  @media screen and (min-width: 560px){
+    .faq-container {
+      width: 540px;
+    
+    }
+}
+
+@media screen and (min-width: 680px){
+  .faq-container {
+    width: 640px;
+  
+  }
+}
+
+@media screen and (min-width: 768px){
+  .faq-container {
+    width: 500px;
+  
+  }
+}
+
+@media screen and (min-width: 840px){
+  .faq-container {
+    width: 550px;
+  
+  }
+}
+
+@media screen and (min-width: 960px){
+  .faq-container {
+    width: 620px;
+  
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .faq-container {
+    width: 700px;
+  
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .faq-container {
+    width: 900px;
+  
+  }
+}

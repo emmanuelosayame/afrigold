@@ -1,0 +1,7 @@
+.icon {
+    font-size: 3.5rem; /* Adjust the font size as needed */
+    color: #D42C07 !important;;
+    background-color: white; /* Replace 'blue' with your desired background color */
+    padding: 1rem; /* Add padding to create space around the icon */
+    border-radius: 50%; /* To make it circular if needed */
+  }

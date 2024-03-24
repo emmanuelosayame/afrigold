@@ -1,0 +1,1 @@
+Welcome to the Nigold-Frontend-web repository! This is the frontend component of a cutting-edge decentralized food delivery platform, connecting food enthusiasts with their favorite restaurants seamlessly. Our platform is built using the latest web technologies to provide a user-friendly experience for both customers and restaurant owners.
