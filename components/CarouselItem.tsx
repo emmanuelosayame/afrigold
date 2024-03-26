@@ -43,7 +43,7 @@ const CarouselItem = ({ content }: { content: string }) => {
       {slides.map((slide, index) => (
         <div
           key={index}
-          className='relative h-[600px] md:h-screen bg-black flex justify-end'>
+          className='relative h-[500px] md:h-screen bg-black flex justify-end'>
           {slide.id === 1 ? (
             <div className='self-end'>
               <Image
@@ -59,28 +59,30 @@ const CarouselItem = ({ content }: { content: string }) => {
               layout='fill'
               src={slide.src}
               alt={`Image ${index + 1}`}
-              className=''
+              className='object-cover'
             />
           )}
-          <div
-            className='absolute inset-x-4 md:inset-x-20 flex flex-col gap-5 md:gap-1 items-start
-           text-white pt-32 md:pt-40 xl:pt-48 z-40 max-w-screen-xl mx-auto'>
-            <h4 className='text-4xl md:text-[50px] font-medium pl-5'>
-              Order the Finest
-            </h4>
-            <p className='text-2xl md:text-[25px] font-medium pl-10 my-3'>
-              Takeaway Food to your Door
-            </p>
-            <p className='text-lg md:text-[20px] pl-14 max-w-[500px] text-start'>
-              You Can Even Order To The Park Or Outdoor Event With Our Location
-              Technology
-            </p>
-            <DownloadLinksAndText />
-            {content === 'orderButton' && (
-              <>
-                <button className='order-button left-align'>ORDER NOW</button>
-              </>
-            )}
+          <div className='absolute inset-0 pt-20 md:pt-40 xl:pt-48 z-40  bg-black/50 pb-3'>
+            <div
+              className='max-w-screen-xl w-full mx-auto flex flex-col gap-4 items-start
+           text-white'>
+              <h4 className='text-4xl md:text-[50px] font-medium pl-10 md:pl-5'>
+                Order the Finest
+              </h4>
+              <p className='text-xl md:text-[25px] font-medium pl-10'>
+                A restaurant in your hands/phone
+              </p>
+              <p className='text-lg md:text-[20px] pl-14 max-w-[500px] text-start'>
+                Giving you the ability to order food anywhere you are for
+                personal or even large gatherings
+              </p>
+              <DownloadLinksAndText />
+              {content === 'orderButton' && (
+                <>
+                  <button className='order-button left-align'>ORDER NOW</button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       ))}

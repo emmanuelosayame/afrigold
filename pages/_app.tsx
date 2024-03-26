@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import font from 'next/font/local';
 import { SWRConfig } from 'swr';
 import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../utils/hooks/auth';
 
 const DownloadAppsModal = dynamic(
   () => import('../components/DownloadAppsModal'),
@@ -60,10 +62,25 @@ function shouldRenderLayout(route: string): boolean {
 function MyApp({ Component, pageProps, router }: AppProps) {
   const shouldRender = shouldRenderLayout(router.route);
 
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const handleStart = () => setLoading(true); // Set the loader to display
+    const handleComplete = () => setLoading(false); // Set the loader to hide
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+    };
+  }, [router]);
+
   return (
     <>
       {shouldRender && <Navbar />}
-      <Loading />
+      {loading && <Loading />}
       <SWRConfig
         value={{
           // refreshInterval: 3000,
@@ -73,6 +90,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           revalidateIfStale: false,
         }}>
         <main className={`${roboto.variable} font-roboto min-h-screen w-full`}>
+          <EnsureCreateProfile />
           <DownloadAppsModal />
           <Component {...pageProps} />
         </main>
@@ -83,5 +101,17 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     </>
   );
 }
+
+const EnsureCreateProfile = () => {
+  const { user, loading } = useAuth();
+
+  useEffect(() => {
+    if (loading) return;
+
+    // if(user)
+  }, [user, loading]);
+
+  return <></>;
+};
 
 export default MyApp;

@@ -1,7 +1,21 @@
 import Link from 'next/link';
 import AuthLayout from '../../components/AuthLayout';
+import { useAuth } from '../../utils/hooks/auth';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Loading from '../../components/Loading';
 
 const RegisterWelcome = () => {
+  const router = useRouter();
+  const { user, loading } = useAuth();
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) router.replace('/');
+  }, [user, loading]);
+
+  if (loading || !user) return <Loading />;
+
   return (
     <AuthLayout>
       <h3 className='text-center text-3xl font-semibold'>welcome</h3>

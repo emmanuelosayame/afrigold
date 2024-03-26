@@ -9,15 +9,22 @@ import { Input } from '../../components/Inputs';
 import { LoadingAbsolute } from '../../components/Loading';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
+import { CreateAccountResponse } from '../../type/api';
+import { mutate } from 'swr';
 
 const RegisterHome = () => {
   const router = useRouter();
 
-  const schema = z.object({
-    email: z.string().email(),
-    password: z.string().min(6),
-    confirmPassword: z.string().min(6),
-  });
+  const schema = z
+    .object({
+      email: z.string().email(),
+      password: z.string().min(6),
+      confirmPassword: z.string().min(6),
+    })
+    .refine(({ password, confirmPassword }) => password === confirmPassword, {
+      message: "passwords don't match",
+      path: ['confirmPassword'],
+    });
   type Schema = z.infer<typeof schema>;
 
   const {
@@ -33,15 +40,17 @@ const RegisterHome = () => {
       (await api.post(key[0], { ...arg, role: 1 })).data,
     {
       onError: (error) => {
-        toast.error(error.message);
+        toast.error(error?.response?.data?.message || error.message);
       },
-      onSuccess: () => {
+      onSuccess: (response) => {
+        localStorage.setItem('auth.token', response.data.token);
+        mutate(['/auth/current'], response);
         router.push('/register/welcome');
       },
     }
   );
 
-  const onSubmit = ({ confirmPassword, email, password, ...rest }: Schema) => {
+  const onSubmit = ({ email, password }: Schema) => {
     trigger({ email, password });
   };
 
@@ -67,6 +76,7 @@ const RegisterHome = () => {
           labelText='Email'
           placeholder='Enter email'
           {...register('email')}
+          error={errors.email?.message}
         />
         <div className='flex flex-col md:flex-row gap-10'>
           <Input
@@ -74,12 +84,14 @@ const RegisterHome = () => {
             placeholder='Enter password'
             {...register('password')}
             type='password'
+            error={errors.password?.message}
           />
           <Input
             labelText='Confirm Password'
             placeholder='Confirm password'
             {...register('confirmPassword')}
             type='password'
+            error={errors.confirmPassword?.message}
           />
         </div>
 
@@ -88,7 +100,7 @@ const RegisterHome = () => {
           <Link
             className='btn-secondary text-[#D50606] hover:underline transition duration-300 underline'
             type='button'
-            href={'/forgot-password'}>
+            href={'/terms-of-service'}>
             Terms of Service
           </Link>
         </div>

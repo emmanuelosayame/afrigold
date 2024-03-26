@@ -40,7 +40,7 @@ const Footer = () => {
           </h2>
           <div className='flex flex-col text-white gap-3 pl-7 pt-5'>
             <Link
-              href='/Home'
+              href='/'
               className='text-white transition duration-300 hover:underline'>
               Home
             </Link>

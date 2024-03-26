@@ -21,7 +21,7 @@ const NavSm = ({ user, cart }: { user: any; cart: number }) => {
   const [open, setOpen] = useState(false);
 
   const logoutUser = () => {
-    localStorage.removeItem('_token');
+    localStorage.removeItem('auth.token');
     router.reload();
   };
 
@@ -87,7 +87,7 @@ const NavSm = ({ user, cart }: { user: any; cart: number }) => {
               </div>
             ) : (
               <div className='flex gap-4 justify-between text-white font-semibold mt-5'>
-                <Link href='/cart'>
+                {/* <Link href='/cart'>
                   <div className='relative cursor-pointer'>
                     <span className='text-white font-medium cursor-pointer hover:translate-y-2 transition duration-300 text-[25px]'>
                       <AiOutlineShoppingCart />
@@ -98,7 +98,7 @@ const NavSm = ({ user, cart }: { user: any; cart: number }) => {
                       </span>
                     )}
                   </div>
-                </Link>
+                </Link> */}
 
                 <button
                   onClick={logoutUser}

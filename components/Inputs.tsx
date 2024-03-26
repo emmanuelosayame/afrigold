@@ -32,6 +32,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
             !!error ? 'border-red-500' : 'border-black'
           } bg-white rounded w-full p-2 md:p-3 mt-3`}
         />
+        {error && <p className='text-xs text-red-500 mt-1'>{error}</p>}
       </div>
     );
   }

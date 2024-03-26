@@ -5,7 +5,6 @@ import CarouselItem from '../components/CarouselItem';
 import { useRouter } from 'next/router'; // Import the useRouter hook
 import GuideSection from '../components/GuideSection';
 import Starters from '../components/Starters';
-import papImage from '../public/pap.jpeg';
 import OrderNow from '../components/OrderNow';
 import FoodCarousel from '../components/carousels/FoodCarousel';
 import MenuCarousel from '../components/carousels/MenuCarousel';
