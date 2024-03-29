@@ -6,31 +6,33 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <footer className='bg-black'>
-      <div className='max-w-[1100px] mx-auto flex gap-4 p-10'>
+      <div className='max-w-[1100px] mx-auto flex gap-4 p-5 md:p-10'>
         <div className='w-2/3 md:w-full space-y-4'>
           <h2 className='text-white text-xl font-medium'>Contact Info</h2>
-          <div className='flex gap-4 items-center '>
+          <div className='flex gap-4 items-center text-base'>
             <div className='bg-[#D50606] p-2 rounded-full '>
               <TiLocation className='text-white h-5 md:h-8 w-5 md:w-8 text-center' />
             </div>
 
-            <p className='text-white font-medium'>
-              2/4 Baba Tunde Allen Street, off Ikeja Road, Lagos State, Nigeria.
+            <p className='text-white font-medium text-[15px] md:text-base'>
+              No. 4b, new JERUSALEM duste Alhaji Abuja
             </p>
           </div>
           <div className='flex gap-4 items-center '>
             <div className='bg-[#D50606] p-2 rounded-full '>
               <BsFillTelephoneInboundFill className='text-white h-5 md:h-8 w-5 md:w-8 text-center' />
             </div>
-            <p className='text-white font-medium text-center'>
-              +234 123 456 769 | +234 123 456 769
+            <p className='text-white font-medium text-center text-[15px] md:text-base'>
+              +234 906 139 3012 | +234 816 991 9062
             </p>
           </div>
           <div className='flex gap-4 items-center '>
             <div className='bg-[#D50606] p-2 rounded-full '>
               <AiOutlineMail className='text-white h-5 md:h-8 w-5 md:w-8 text-center' />
             </div>
-            <p className='text-white font-medium'>example@yourmail.com</p>
+            <p className='text-white font-medium'>
+              nikeobitech.startup@gmail.com
+            </p>
           </div>
         </div>
 
