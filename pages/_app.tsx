@@ -52,6 +52,7 @@ function shouldRenderLayout(route: string): boolean {
     '/create-profile/customer',
     '/create-profile/vendor',
     '/contact',
+    '/admin',
   ];
 
   return !excludedRoutes.some((excludedRoute) =>
